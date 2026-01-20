@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>ARG</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: monospace;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="text">...</h1>
+
+<script>
+    // Hent ordet efter /
+    let path = window.location.pathname;
+
+    // Hvis repo hedder arg-site, fjern det
+    path = path.replace("/arg-site/", "");
+
+    let word = path.replace("/", "");
+
+    const text = document.getElementById("text");
+
+    if (word === "") {
+        text.textContent = "Skriv et ord efter /";
+    }
+    else if (word === "hej") {
+        text.textContent = "Hej... du fandt det første spor.";
+    }
+    else if (word === "spor1") {
+        text.textContent = "Næste spor: /spor2";
+    }
+    else if (word === "spor2") {
+        text.textContent = "Du er kommet for langt.";
+    }
+    else {
+        text.textContent = "Ukendt.";
+    }
+</script>
+
+</body>
+</html>
