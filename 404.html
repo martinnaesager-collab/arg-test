@@ -2,26 +2,64 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
-  <title>Test</title>
+  <title>ARG</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
 
-<h1 id="text">Loader...</h1>
+<h1 id="output">Loader...</h1>
+<p id="hint"></p>
 
 <script>
+  // Hent ordet efter / i URL
   let path = window.location.pathname;
 
-  // RET "arg-site" til dit repo-navn
-  path = path.replace("/arg-site/", "");
+  // RET dette til dit repo-navn
+  path = path.replace("/arg-site/", "");  
 
   let word = path.replace("/", "");
+  const output = document.getElementById("output");
+  const hint = document.getElementById("hint");
 
-  const text = document.getElementById("text");
-
-  if (word === "") {
-    text.textContent = "Forside";
-  } else {
-    text.textContent = "Du skrev: " + word;
+  // Tjek ord og vis beskeder
+  switch(word) {
+    case "":
+      output.textContent = "Velkommen… skriv et ord efter /";
+      hint.textContent = "fx: /hej, /spor1, /sandheden";
+      break;
+    case "hej":
+      output.textContent = "Hej… du fandt første spor.";
+      hint.textContent = "Næste spor: /spor1";
+      break;
+    case "spor1":
+      output.textContent = "Godt! Du er på sporet.";
+      hint.textContent = "Næste spor: /spor2";
+      break;
+    case "spor2":
+      output.textContent = "Du er tæt på sandheden!";
+      hint.textContent = "Hint: prøv /sandheden";
+      break;
+    case "sandheden":
+      output.textContent = "🎉 Du fandt sandheden! 🎉";
+      hint.textContent = "Tak fordi du spillede med.";
+      break;
+    default:
+      output.textContent = "Ukendt signal…";
+      hint.textContent = "Prøv et andet ord.";
   }
 </script>
 
