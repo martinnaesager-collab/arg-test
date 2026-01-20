@@ -1,49 +1,5 @@
-<!DOCTYPE html>
-<html lang="da">
-<head>
-  <meta charset="UTF-8">
-  <title>ARG</title>
-  <style>
-    body {
-      background: black;
-      color: lime;
-      font-family: monospace;
-      text-align: center;
-      margin-top: 100px;
-    }
-    h1 {
-      font-size: 2em;
-    }
-    p {
-      font-size: 1.2em;
-    }
-  </style>
-</head>
-<body>
-
-<h1 id="output">Loader...</h1>
-<p id="hint"></p>
-
-<script>
-  // Hent ordet efter / i URL
-  let path = window.location.pathname;
-
-  // RET dette til dit repo-navn
-  path = path.replace("/arg-site/", "");  
-
-  let word = path.replace("/", "");
-  const output = document.getElementById("output");
-  const hint = document.getElementById("hint");
-
-  // Tjek ord og vis beskeder
 /arg-site/
 /arg-site/hej
 /arg-site/spor1
 /arg-site/spor2
 /arg-site/sandheden
-
-  }
-</script>
-
-</body>
-</html>
