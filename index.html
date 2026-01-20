@@ -2,48 +2,26 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
-  <title>ARG</title>
-  <style>
-    body {
-      background: black;
-      color: white;
-      font-family: monospace;
-      text-align: center;
-      margin-top: 100px;
-    }
-  </style>
+  <title>Test</title>
 </head>
 <body>
 
-<h1 id="output">...</h1>
+<h1 id="text">Loader...</h1>
 
 <script>
-  // 1. Hent hele stien
   let path = window.location.pathname;
 
-  // 2. Ret dette til dit repo-navn
+  // RET "arg-site" til dit repo-navn
   path = path.replace("/arg-site/", "");
 
-  // 3. Fjern evt. /
   let word = path.replace("/", "");
 
-  const output = document.getElementById("output");
+  const text = document.getElementById("text");
 
-  // 4. Reaktioner
   if (word === "") {
-    output.textContent = "Skriv et ord efter /";
-  }
-  else if (word === "hej") {
-    output.textContent = "Hej... du burde ikke være her.";
-  }
-  else if (word === "spor1") {
-    output.textContent = "Næste spor er gemt et andet sted.";
-  }
-  else if (word === "sandheden") {
-    output.textContent = "Du er tæt på.";
-  }
-  else {
-    output.textContent = "Ukendt signal.";
+    text.textContent = "Forside";
+  } else {
+    text.textContent = "Du skrev: " + word;
   }
 </script>
 
